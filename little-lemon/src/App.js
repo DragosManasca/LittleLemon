@@ -1,7 +1,8 @@
-import "./App.css";
+import * as React from "react";
+import { BrowserRouter } from "react-dom";
 
 function App() {
-  return <div className="App">Homepage</div>;
+  return <BrowserRouter></BrowserRouter>;
 }
 
 export default App;
