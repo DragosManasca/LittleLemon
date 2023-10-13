@@ -4,10 +4,14 @@ import { Footer } from "../Footer";
 
 export function MenuAndContent(props) {
   return (
-    <>
-      <Menu />
-      <main>{props.children}</main>
-      <Footer />
-    </>
+    <div className="container">
+      <div></div>
+      <section>
+        <Menu />
+        <main>{props.children}</main>
+        <Footer />
+      </section>
+      <div></div>
+    </div>
   );
 }
