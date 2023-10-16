@@ -1,0 +1,32 @@
+.btn {
+  width: 176px;
+  height: 37px;
+  margin-top: 40px;
+  border: none;
+  border-radius: 8px;
+  font-weight: @weight-card-title;
+
+  &.btn-primary {
+    background-color: @color-secondary;
+
+    &:hover {
+      color: @color-primary;
+    }
+
+    &:active {
+      background-color: @color-primary;
+      color: @color-secondary;
+    }
+
+    &.rounded {
+      border-radius: 16px;
+    }
+  }
+}
+
+@media (max-width: @screen-xs) {
+  .btn {
+    width: 148px;
+    height: 35px;
+  }
+}
