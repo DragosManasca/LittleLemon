@@ -32,6 +32,70 @@ export const burger_menu_icon = () => (
   </svg>
 );
 
+export const back_nav_icon = () => (
+  <svg
+    id="ic_nav_back"
+    xmlns="http://www.w3.org/2000/svg"
+    width="48"
+    height="48"
+    viewBox="0 0 48 48"
+  >
+    <rect id="Box" width="48" height="48" fill="none" />
+    <path
+      id="ic_nav_up"
+      d="M16.465,8.482H1.483"
+      transform="translate(15.518 15.518)"
+      fill="none"
+      stroke="#1a1a1a"
+      strokeLinecap="round"
+      strokeWidth="2"
+    />
+    <path
+      id="Path_470"
+      data-name="Path 470"
+      d="M23.676,16.018,16.2,23.748l7.477,7.73"
+      transform="translate(0.324 0.252)"
+      fill="none"
+      stroke="#1a1a1a"
+      strokeLinecap="round"
+      strokeWidth="2"
+    />
+  </svg>
+);
+
+export const close_icon = () => (
+  <svg
+    id="ic_banner_close"
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+  >
+    <rect id="Box" width="20" height="20" fill="none" />
+    <line
+      id="Line"
+      x2="10"
+      y2="10"
+      transform="translate(4 4)"
+      fill="none"
+      stroke="#495e57"
+      strokeLinecap="round"
+      strokeWidth="2.5"
+    />
+    <line
+      id="Line-2"
+      data-name="Line"
+      x1="10"
+      y2="10"
+      transform="translate(4 4)"
+      fill="none"
+      stroke="#495e57"
+      strokeLinecap="round"
+      strokeWidth="2.5"
+    />
+  </svg>
+);
+
 export const header_logo = () => (
   <svg
     width="148"

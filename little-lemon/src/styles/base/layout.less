@@ -19,14 +19,66 @@
         text-decoration: none;
       }
 
+      &:hover {
+        text-decoration: underline;
+      }
+
       &:active {
         color: @color-secondary;
+      }
+
+      &-mobile {
+        font-family: @font-title;
+        font-weight: @weight-title;
+        font-size: @size-subtitle;
+        color: @color-primary;
+
+        &:link {
+          text-decoration: none;
+        }
+
+        &:active {
+          color: @color-secondary;
+        }
       }
     }
 
     .nav-button {
       background-color: #ffffff;
       border: none;
+      cursor: pointer;
+
+      &-close {
+        position: relative;
+        top: 0.6rem;
+        left: 90%;
+        background-color: @color-bc-01;
+        border: none;
+      }
+    }
+
+    .logo {
+      cursor: pointer;
+    }
+
+    .nav-component {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20rem;
+      height: 50vh;
+      background-color: @color-bc-01;
+      z-index: 10;
+      transition: transform 0.3s ease-in;
+
+      ul {
+        margin-top: 20px;
+        list-style-type: none;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -36,6 +88,9 @@
     padding-top: 40px;
 
     .hero-header {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
       padding-left: calc(100vw / 9);
       padding-right: calc(100vw / 9);
 

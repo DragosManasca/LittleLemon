@@ -5,6 +5,7 @@
   border: none;
   border-radius: 8px;
   font-weight: @weight-card-title;
+  cursor: pointer;
 
   &.btn-primary {
     background-color: @color-secondary;
@@ -14,7 +15,7 @@
     }
 
     &:active {
-      background-color: @color-primary;
+      background-color: @color-primary-clicked;
       color: @color-secondary;
     }
 
@@ -28,5 +29,35 @@
   .btn {
     width: 148px;
     height: 35px;
+  }
+}
+
+.back-btn {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 15px;
+
+  svg {
+    border-radius: 50%;
+    background-color: @color-secondary;
+    width: 35px;
+    height: 35px;
+  }
+
+  &:hover {
+    svg {
+      path {
+        stroke: @color-primary;
+      }
+    }
+  }
+
+  &:active {
+    svg {
+      background-color: @color-primary-clicked;
+      path {
+        stroke: @color-secondary;
+      }
+    }
   }
 }
