@@ -1,7 +1,6 @@
 .btn {
   width: 176px;
   height: 37px;
-  margin-top: 40px;
   border: none;
   border-radius: 8px;
   font-weight: @weight-card-title;
@@ -18,10 +17,15 @@
       background-color: @color-primary-clicked;
       color: @color-secondary;
     }
+  }
 
-    &.rounded {
-      border-radius: 16px;
-    }
+  &.rounded {
+    border-radius: 16px;
+  }
+
+  &.btn-short {
+    width: 160px;
+    height: 50px;
   }
 }
 

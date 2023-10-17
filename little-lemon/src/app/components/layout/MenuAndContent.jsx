@@ -5,13 +5,11 @@ import { Footer } from "../Footer";
 export function MenuAndContent(props) {
   return (
     <div className="container">
-      <div></div>
       <section>
         <Menu />
-        <main>{props.children}</main>
+        <main className="body">{props.children}</main>
         <Footer />
       </section>
-      <div></div>
     </div>
   );
 }

@@ -1,0 +1,45 @@
+.highlights {
+  padding-left: calc(100vw / 9);
+  padding-right: calc(100vw / 9);
+  margin-top: 9rem;
+
+  .headings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9rem;
+  }
+
+  h1 {
+    font-family: @font-title;
+    font-size: @size-title;
+    font-weight: @weight-title;
+    margin-right: 2rem;
+  }
+}
+
+@media (width <= @screen-sm) {
+  .highlights {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+}
+
+@media (width <= @screen-xs) {
+  .highlights {
+    margin-top: 4rem;
+    .headings {
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+@media (width <= @screen-xxs) {
+  .highlights {
+    margin-top: 2rem;
+
+    h1 {
+      font-size: @size-subtitle;
+    }
+  }
+}
