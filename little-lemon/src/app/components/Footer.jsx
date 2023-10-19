@@ -1,16 +1,10 @@
 import * as React from "react";
 import FooterIcon from "../assets/images/footerIcon.png";
-import { sm_facebook_icon as FacebookIcon } from "../widgets/SVGs/index";
-import { sm_instagram_icon as InstagramIcon } from "../widgets/SVGs/index";
-import { sm_twitter_icon as TwitterIcon } from "../widgets/SVGs/index";
-
-const socialmediaLinks = [
-  { icon: FacebookIcon, url: "https://facebook.com" },
-  { icon: InstagramIcon, url: "https://instagram.com" },
-  { icon: TwitterIcon, url: "https://twitter.com" },
-];
+import { getSocialMediaLinks } from "../widgets/utils/layoutUtils";
 
 export function Footer() {
+  const socialmediaLinks = getSocialMediaLinks();
+
   return (
     <footer className="footer">
       <section className="footer-description item">

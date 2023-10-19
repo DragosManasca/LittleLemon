@@ -1,19 +1,24 @@
 import * as React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { back_nav_icon as BackIcon } from "../widgets/SVGs";
 
 export function Hero({ heroImage, children }) {
+  const [isHomePage, setIsHomePage] = React.useState(true);
+
+  const navigate = useNavigate();
   const location = useLocation();
+
+  React.useEffect(
+    () => setIsHomePage(location.pathname === "/" ? true : false),
+    [location.pathname]
+  );
 
   return (
     <>
       <div className="hero">
         <div className="hero-header">
-          {!location.pathname === "/" && (
-            <span
-              className="back-btn"
-              onClick={() => console.log("to be implemented")}
-            >
+          {!isHomePage && (
+            <span className="back-btn" onClick={() => navigate(-1)}>
               <BackIcon />
             </span>
           )}
@@ -22,22 +27,31 @@ export function Hero({ heroImage, children }) {
             <h2 className="subtitle">Chicago</h2>
           </div>
         </div>
-        <div className="hero-content">
-          <section className="hero-info">
-            <p>
-              We are a family owned Mediterranean restaurant, focused on
-              traditional recipes served with a modern twist.
-            </p>
-            <button className="btn btn-primary rounded">Reserve a table</button>
-          </section>
-          <img
-            src={heroImage}
-            alt="restaurant content"
-            className="hero-image"
-          />
-        </div>
+        {isHomePage ? (
+          <div className="hero-content">
+            <section className="hero-info">
+              <p>
+                We are a family owned Mediterranean restaurant, focused on
+                traditional recipes served with a modern twist.
+              </p>
+              <button
+                className="btn btn-primary rounded"
+                onClick={() => navigate("/reservation")}
+              >
+                Reserve a table
+              </button>
+            </section>
+            <img
+              src={heroImage}
+              alt="restaurant content"
+              className="hero-image-home"
+            />
+          </div>
+        ) : (
+          <img src={heroImage} alt="" className="hero-image" />
+        )}
       </div>
-      <section>{children}</section>
+      <>{children}</>
     </>
   );
 }

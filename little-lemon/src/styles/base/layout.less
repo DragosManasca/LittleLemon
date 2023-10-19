@@ -1,15 +1,19 @@
 .container {
-  display: grid;
-  grid-template-rows: auto auto auto;
-
   .navbar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in;
+    background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: auto;
     height: 4rem;
-    padding-left: calc(100vw / 9);
-    padding-right: calc(100vw / 9);
+    padding-left: calc(100vw / 7);
+    padding-right: calc(100vw / 7);
 
     .menu-item {
       font-family: @font-title;
@@ -65,7 +69,7 @@
     }
 
     .nav-component {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 20rem;
@@ -87,15 +91,15 @@
 
   .hero {
     background-color: @color-primary;
-    height: 24rem;
-    padding-top: 40px;
+    height: 26rem;
+    padding-top: 5rem;
 
     .hero-header {
       display: flex;
       justify-content: flex-start;
       flex-wrap: wrap;
-      padding-left: calc(100vw / 9);
-      padding-right: calc(100vw / 9);
+      padding-left: calc(100vw / 7);
+      padding-right: calc(100vw / 7);
 
       .title {
         color: @color-secondary;
@@ -117,8 +121,8 @@
     .hero-content {
       display: flex;
       justify-content: space-between;
-      padding-left: calc(100vw / 9);
-      padding-right: calc(100vw / 9);
+      padding-left: calc(100vw / 7);
+      padding-right: calc(100vw / 7);
 
       .hero-info {
         flex-shrink: 5;
@@ -133,11 +137,18 @@
         }
       }
 
-      .hero-image {
+      .hero-image-home {
         flex-shrink: 5;
         width: 360px;
         height: 400px;
       }
+    }
+
+    .hero-image {
+      padding-left: calc(100vw / 7);
+      padding-right: calc(100vw / 7);
+      width: 71.3%;
+      height: 350px;
     }
   }
 
@@ -147,8 +158,8 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding-left: calc(100vw / 9);
-    padding-right: calc(100vw / 9);
+    padding-left: calc(100vw / 7);
+    padding-right: calc(100vw / 7);
     color: #ffffff;
     padding-top: 1.5rem;
 
@@ -192,6 +203,7 @@
         .media-link {
           margin-left: 5px;
           margin-right: 5px;
+          cursor: pointer;
         }
       }
     }
@@ -213,6 +225,47 @@
   }
 }
 
+@media (min-width: 1440px) {
+  .container {
+    .hero {
+      .hero-image {
+        height: 450px;
+      }
+    }
+  }
+}
+
+@media (max-width: @screen-md) {
+  .container {
+    .navbar-menu {
+      padding-left: calc(100vw / 9);
+      padding-right: calc(100vw / 9);
+    }
+
+    .hero {
+      .hero-header {
+        padding-left: calc(100vw / 9);
+        padding-right: calc(100vw / 9);
+      }
+      .hero-content {
+        padding-left: calc(100vw / 9);
+        padding-right: calc(100vw / 9);
+      }
+
+      .hero-image {
+        padding-left: calc(100vw / 9);
+        padding-right: calc(100vw / 9);
+        width: 77.8%;
+        height: 350px;
+      }
+    }
+    .footer {
+      padding-left: calc(100vw / 9);
+      padding-right: calc(100vw / 9);
+    }
+  }
+}
+
 @media (max-width: @screen-sm) {
   .container {
     .navbar-menu {
@@ -225,9 +278,17 @@
         padding-left: 4%;
         padding-right: 4%;
       }
+
       .hero-content {
         padding-left: 4%;
         padding-right: 4%;
+      }
+
+      .hero-image {
+        padding-left: 4%;
+        padding-right: 4%;
+        width: 92%;
+        height: 320px;
       }
     }
     .footer {
@@ -245,7 +306,7 @@
           font-size: 16px;
         }
 
-        .hero-image {
+        .hero-image-home {
           width: 280px;
           height: 310px;
         }
@@ -262,10 +323,13 @@
   .container {
     .hero {
       .hero-content {
-        .hero-image {
+        .hero-image-home {
           width: 200px;
           height: 244px;
         }
+      }
+      .hero-image {
+        height: 240px;
       }
     }
   }
