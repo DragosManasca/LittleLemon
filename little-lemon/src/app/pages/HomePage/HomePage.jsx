@@ -3,7 +3,7 @@ import { Highlights } from "./Highlights";
 import { Testimonials } from "./Testimonials";
 import { About } from "./About";
 
-export function Home() {
+export function HomePage() {
   return (
     <>
       <Highlights />

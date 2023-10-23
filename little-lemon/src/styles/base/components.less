@@ -11,11 +11,28 @@
 
     &:hover {
       color: @color-primary;
+      box-shadow: 2px 2px 2px 2px @color-primary-clicked;
     }
 
     &:active {
       background-color: @color-primary-clicked;
       color: @color-secondary;
+    }
+  }
+
+  &.btn-submit {
+    width: 100%;
+    background-color: @color-primary;
+    color: #ffffff;
+
+    &:hover {
+      color: @color-secondary;
+      box-shadow: 1px 1px 1px 1px @color-secondary;
+    }
+
+    &:active {
+      background-color: @color-secondary;
+      color: @color-primary;
     }
   }
 

@@ -2,8 +2,8 @@ import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MenuAndContent } from "./components/layout/MenuAndContent";
 import { Hero } from "./components/Hero";
-import { Home } from "./pages/HomePage/Home";
-import { Reservation } from "./pages/ReservationPage/Reservation";
+import { HomePage } from "./pages/HomePage/HomePage";
+import { BookingPage } from "./pages/BookingPage/BookingPage";
 import RestaurantFoodImg from "./assets/images/restauranfood.jpg";
 import RestaurantImg from "./assets/images/restaurant.jpg";
 
@@ -16,7 +16,7 @@ function App() {
           element={
             <MenuAndContent>
               <Hero heroImage={RestaurantFoodImg}>
-                <Home />
+                <HomePage />
               </Hero>
             </MenuAndContent>
           }
@@ -27,7 +27,7 @@ function App() {
           element={
             <MenuAndContent>
               <Hero heroImage={RestaurantImg}>
-                <Reservation />
+                <BookingPage />
               </Hero>
             </MenuAndContent>
           }
@@ -38,7 +38,7 @@ function App() {
           element={
             <MenuAndContent>
               <Hero heroImage={RestaurantFoodImg}>
-                <Home />
+                <HomePage />
               </Hero>
             </MenuAndContent>
           }

@@ -8,6 +8,8 @@ export function Hero({ heroImage, children }) {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const subtitle = isHomePage ? "Chicago" : "Reserve a Table";
+
   React.useEffect(
     () => setIsHomePage(location.pathname === "/" ? true : false),
     [location.pathname]
@@ -24,7 +26,7 @@ export function Hero({ heroImage, children }) {
           )}
           <div>
             <h1 className="title">Little Lemon</h1>
-            <h2 className="subtitle">Chicago</h2>
+            <h2 className="subtitle">{subtitle}</h2>
           </div>
         </div>
         {isHomePage ? (
@@ -48,7 +50,9 @@ export function Hero({ heroImage, children }) {
             />
           </div>
         ) : (
-          <img src={heroImage} alt="" className="hero-image" />
+          <div className="hero-image">
+            <img src={heroImage} alt="" />
+          </div>
         )}
       </div>
       <>{children}</>
