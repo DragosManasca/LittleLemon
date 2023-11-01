@@ -1,45 +1,40 @@
 import * as React from "react";
 import { BookingForm } from "./BookingForm";
-import { initializeTime } from "../../widgets/utils/bookingPageUtils";
+import { getToday } from "../../widgets/utils/bookingPageUtils";
+import { InitialTimesContext } from "../../components/reactContexts/InitialTimesContext";
 
 const reducer = (state, action) => {
-  if (action.type === "SET_DATE")
-    return { ...state, date: action.payload.date };
+  if (action.type === "CHANGE_DATE") return action.payload.availableTimes;
 
-  if (action.type === "SET_TIME") {
-    return { ...state, time: action.payload.time };
-  }
-
-  if (action.type === "SET_GUESTS")
-    return { ...state, guests: action.payload.guests };
-
-  if (action.type === "SET_OCCASION")
-    return { ...state, occasion: action.payload.occasion };
-
-  if (action.type === "SET_INITIAL_TIME") {
-    const updatedTime = state.initialTime.filter(
-      (it) => it !== action.payload.initialTime
-    );
-    return { ...state, initialTime: updatedTime };
+  if (action.type === "BOOK_TIME") {
+    const updatedState = state.filter((time) => time !== action.payload.time);
+    return updatedState;
   }
 
   return state;
 };
 
 export function BookingPage() {
-  const initialTime = initializeTime();
-  const [state, dispatch] = React.useReducer(reducer, {
-    date: "",
-    time: initialTime[0],
+  const { getInitialTimes } = React.useContext(InitialTimesContext);
+  const initialTime = getInitialTimes(getToday());
+  const [availableTimes, dispatch] = React.useReducer(reducer, initialTime);
+  const [formData, setFormData] = React.useState({
+    name: "",
+    date: getToday(),
+    time: availableTimes[0],
     guests: 0,
     occasion: "Anniversary",
-    initialTime: initialTime,
   });
 
   return (
     <section className="booking">
       <h2>Please fill out reservation details</h2>
-      <BookingForm dispatch={dispatch} state={state} />
+      <BookingForm
+        formData={formData}
+        setFormData={setFormData}
+        availableTimes={availableTimes}
+        dispatch={dispatch}
+      />
     </section>
   );
 }

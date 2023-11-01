@@ -1,58 +1,104 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
+import { InitialTimesContext } from "../../components/reactContexts/InitialTimesContext";
+import { getToday } from "../../widgets/utils/bookingPageUtils";
+import { FormContext } from "../../components/reactContexts/formContext";
 
-export function BookingForm({ state, dispatch }) {
+export function BookingForm({
+  formData,
+  setFormData,
+  availableTimes,
+  dispatch,
+}) {
+  const { updateInitialTimes, getInitialTimes } =
+    React.useContext(InitialTimesContext);
+  const { state, setState } = React.useContext(FormContext);
+
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
 
-    switch (name) {
-      case "date":
-        dispatch({ type: "SET_DATE", payload: { date: value } });
-        break;
-      case "time":
-        dispatch({ type: "SET_TIME", payload: { time: value } });
-        break;
-      case "guests":
-        dispatch({ type: "SET_GUESTS", payload: { guests: value } });
-        break;
-      case "occasion":
-        dispatch({ type: "SET_OCCASION", payload: { occasion: value } });
-        break;
-      default:
-        break;
+    if (name === "date") {
+      const times = getInitialTimes(value);
+
+      dispatch({
+        type: "CHANGE_DATE",
+        payload: { availableTimes: times },
+      });
     }
+
+    setFormData({ ...formData, [name]: value });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let data = [...state];
+    data.push(formData);
+    setState(data);
+    dispatch({ type: "BOOK_TIME", payload: { time: formData.time } });
+    setTimeout(() => navigate("/"), 100);
+  };
+
+  React.useEffect(() => {
+    updateInitialTimes(formData.date, availableTimes);
+    setFormData({ ...formData, time: availableTimes[0] });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [availableTimes]);
 
   return (
     <>
       <form className="booking-form">
         <div className="detail">
-          <label htmlFor="reservation-date">Choose date</label>
+          <label htmlFor="reservation-name" aria-label="reservation-name">
+            Name
+          </label>
+          <input
+            aria-labelledby="reservation-name"
+            type="text"
+            name="name"
+            id="reservation-name"
+            value={formData.name}
+            placeholder="Your Name"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="detail">
+          <label htmlFor="reservation-date" aria-label="reservation-date">
+            Choose date
+          </label>
           <input
             aria-labelledby="reservation-date"
             type="date"
             name="date"
             id="reservation-date"
-            value={state.date}
+            min={getToday()}
+            value={formData.date}
             onChange={handleChange}
           />
         </div>
         <div className="detail">
-          <label htmlFor="reseravtion-time">Choose time</label>
+          <label htmlFor="reseravtion-time" aria-label="reseravtion-time">
+            Choose time
+          </label>
           <select
             aria-labelledby="reseravtion-time"
             id="reseravtion-time"
             name="time"
-            value={state.time}
+            value={formData.time}
             onChange={handleChange}
           >
-            {state.initialTime.map((time) => (
+            {availableTimes.map((time) => (
               <option key={time}>{time}</option>
             ))}
           </select>
         </div>
         <div className="detail">
-          <label htmlFor="guests">Number of guests</label>
+          <label htmlFor="guests" aria-label="guests">
+            Number of guests
+          </label>
           <input
             aria-labelledby="guests"
             className="special"
@@ -61,17 +107,19 @@ export function BookingForm({ state, dispatch }) {
             min="1"
             max="10"
             id="guests"
-            value={state.guests}
+            value={formData.guests}
             onChange={handleChange}
           />
         </div>
         <div className="detail">
-          <label htmlFor="occasion">Occasion</label>
+          <label htmlFor="occasion" aria-label="occasion">
+            Occasion
+          </label>
           <select
             aria-labelledby="occasion"
             id="occasion"
             name="occasion"
-            value={state.ocasion}
+            value={formData.ocasion}
             onChange={handleChange}
           >
             <option>Anniversary</option>
@@ -81,15 +129,10 @@ export function BookingForm({ state, dispatch }) {
         </div>
         <input
           className="btn btn-submit"
-          type="button"
+          type="submit"
           value="Make Your Reservation"
-          onClick={() => {
-            dispatch({
-              type: "SET_INITIAL_TIME",
-              payload: { initialTime: state.time },
-            });
-            console.log("bla", state);
-          }}
+          aria-label="On Click"
+          onClick={handleSubmit}
         />
       </form>
     </>
