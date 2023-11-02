@@ -4,7 +4,7 @@ import { Footer } from "../Footer";
 
 export function MenuAndContent(props) {
   return (
-    <div className="container">
+    <div id="app-layout" className="container">
       <section>
         <Menu />
         <main className="body">{props.children}</main>

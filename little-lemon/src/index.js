@@ -3,11 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./styles/root.less";
 import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
+import { ReactContextContainer } from "./app/components/reactContexts/reactContextContainer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <ReactContextContainer>
+      <App />
+    </ReactContextContainer>
   </React.StrictMode>
 );
 

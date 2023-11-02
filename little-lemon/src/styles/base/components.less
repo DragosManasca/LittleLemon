@@ -11,11 +11,66 @@
 
     &:hover {
       color: @color-primary;
+      box-shadow: 2px 2px 2px 2px @color-primary-clicked;
+    }
+
+    &:focus {
+      color: @color-primary;
+      box-shadow: 2px 2px 2px 2px @color-primary-clicked;
     }
 
     &:active {
       background-color: @color-primary-clicked;
       color: @color-secondary;
+    }
+  }
+
+  &.btn-submit {
+    width: 100%;
+    background-color: @color-primary;
+    color: #ffffff;
+
+    &:hover:enabled {
+      color: @color-secondary;
+      box-shadow: 1px 1px 1px 1px @color-secondary;
+    }
+
+    &:focus:enabled {
+      color: @color-secondary;
+      box-shadow: 1px 1px 1px 1px @color-secondary;
+    }
+
+    &:active:enabled {
+      background-color: @color-secondary;
+      color: @color-primary;
+    }
+
+    &:disabled {
+      background-color: #677571;
+    }
+  }
+
+  &.btn-tertiary {
+    width: 100%;
+    background-color: @color-bc-01;
+    color: @color-primary;
+    border: 1px solid @color-primary;
+
+    &:hover {
+      color: white;
+      background-color: @color-primary;
+      box-shadow: 1px 1px 1px 1px @color-bc-02;
+    }
+
+    &:focus {
+      color: white;
+      background-color: @color-primary;
+      box-shadow: 1px 1px 1px 1px @color-bc-02;
+    }
+
+    &:active {
+      color: @color-secondary;
+      box-shadow: 1px 1px 1px 1px @color-secondary;
     }
   }
 

@@ -2,10 +2,12 @@ import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MenuAndContent } from "./components/layout/MenuAndContent";
 import { Hero } from "./components/Hero";
-import { Home } from "./pages/HomePage/Home";
-import { Reservation } from "./pages/ReservationPage/Reservation";
+import { HomePage } from "./pages/HomePage/HomePage";
+import { BookingPage } from "./pages/BookingPage/BookingPage";
+import { ConfirmedBooking } from "./pages/BookingPage/ConfirmedBooking";
 import RestaurantFoodImg from "./assets/images/restauranfood.jpg";
 import RestaurantImg from "./assets/images/restaurant.jpg";
+import ScrollToTop from "./widgets/ScrollToTop";
 
 function App() {
   return (
@@ -14,11 +16,13 @@ function App() {
         <Route
           path="/"
           element={
-            <MenuAndContent>
-              <Hero heroImage={RestaurantFoodImg}>
-                <Home />
-              </Hero>
-            </MenuAndContent>
+            <ScrollToTop>
+              <MenuAndContent>
+                <Hero heroImage={RestaurantFoodImg}>
+                  <HomePage />
+                </Hero>
+              </MenuAndContent>
+            </ScrollToTop>
           }
         />
 
@@ -27,7 +31,18 @@ function App() {
           element={
             <MenuAndContent>
               <Hero heroImage={RestaurantImg}>
-                <Reservation />
+                <BookingPage />
+              </Hero>
+            </MenuAndContent>
+          }
+        />
+
+        <Route
+          path="/reservation/confirm"
+          element={
+            <MenuAndContent>
+              <Hero heroImage={RestaurantImg}>
+                <ConfirmedBooking />
               </Hero>
             </MenuAndContent>
           }
@@ -38,7 +53,7 @@ function App() {
           element={
             <MenuAndContent>
               <Hero heroImage={RestaurantFoodImg}>
-                <Home />
+                <HomePage />
               </Hero>
             </MenuAndContent>
           }
