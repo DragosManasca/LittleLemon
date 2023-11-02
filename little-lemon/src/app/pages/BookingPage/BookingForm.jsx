@@ -103,10 +103,10 @@ export function BookingForm({
           <span className="form-control">
             <input
               className={`${nameError && "error"}`}
-              aria-labelledby="reservation-name"
+              aria-label="reservation-name"
               aria-errormessage={nameError}
               type="text"
-              name="name"
+              name="reservation-name"
               id="reservation-name"
               value={formData.name}
               placeholder="Your Name"
@@ -124,7 +124,7 @@ export function BookingForm({
           </label>
           <span className="form-control">
             <input
-              aria-labelledby="reservation-date"
+              aria-label="reservation-date"
               type="date"
               name="date"
               id="reservation-date"
@@ -141,7 +141,7 @@ export function BookingForm({
           <span className="form-control">
             <select
               className={`${timeError && "error"}`}
-              aria-labelledby="reseravtion-time"
+              aria-label="reseravtion-time"
               id="reseravtion-time"
               name="time"
               value={formData.time}
@@ -163,7 +163,7 @@ export function BookingForm({
           </label>
           <span className="form-control">
             <input
-              aria-labelledby="guests"
+              aria-label="guests"
               className={`special ${guestsError && "error"}`}
               type="number"
               name="guests"
@@ -185,7 +185,7 @@ export function BookingForm({
           </label>
           <span className="form-control">
             <select
-              aria-labelledby="occasion"
+              aria-label="occasion"
               id="occasion"
               name="occasion"
               value={formData.ocasion}
