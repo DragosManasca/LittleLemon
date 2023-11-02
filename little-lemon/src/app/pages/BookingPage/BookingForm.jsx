@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { InitialTimesContext } from "../../components/reactContexts/InitialTimesContext";
 import { getToday } from "../../widgets/utils/bookingPageUtils";
 import { FormContext } from "../../components/reactContexts/formContext";
@@ -15,6 +15,7 @@ export function BookingForm({
   const { state, setState } = React.useContext(FormContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -39,7 +40,7 @@ export function BookingForm({
     data.push(formData);
     setState(data);
     dispatch({ type: "BOOK_TIME", payload: { time: formData.time } });
-    setTimeout(() => navigate("/"), 100);
+    setTimeout(() => navigate(location.pathname + "/confirm"), 100);
   };
 
   React.useEffect(() => {
@@ -50,6 +51,7 @@ export function BookingForm({
 
   return (
     <>
+      <h2>Please fill out reservation details</h2>
       <form className="booking-form">
         <div className="detail">
           <label htmlFor="reservation-name" aria-label="reservation-name">

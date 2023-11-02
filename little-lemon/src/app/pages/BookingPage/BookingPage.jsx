@@ -28,7 +28,6 @@ export function BookingPage() {
 
   return (
     <section className="booking">
-      <h2>Please fill out reservation details</h2>
       <BookingForm
         formData={formData}
         setFormData={setFormData}

@@ -4,6 +4,7 @@ import { MenuAndContent } from "./components/layout/MenuAndContent";
 import { Hero } from "./components/Hero";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { BookingPage } from "./pages/BookingPage/BookingPage";
+import { ConfirmedBooking } from "./pages/BookingPage/ConfirmedBooking";
 import RestaurantFoodImg from "./assets/images/restauranfood.jpg";
 import RestaurantImg from "./assets/images/restaurant.jpg";
 
@@ -28,6 +29,17 @@ function App() {
             <MenuAndContent>
               <Hero heroImage={RestaurantImg}>
                 <BookingPage />
+              </Hero>
+            </MenuAndContent>
+          }
+        />
+
+        <Route
+          path="/reservation/confirm"
+          element={
+            <MenuAndContent>
+              <Hero heroImage={RestaurantImg}>
+                <ConfirmedBooking />
               </Hero>
             </MenuAndContent>
           }
