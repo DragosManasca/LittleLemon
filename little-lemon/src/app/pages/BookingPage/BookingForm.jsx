@@ -20,7 +20,6 @@ export function BookingForm({
   const [guestsError, setGuestsError] = React.useState("");
   const [timeError, setTimeError] = React.useState("");
   const [isDisabled, setIsDisabled] = React.useState(false);
-  console.log(isDisabled);
 
   const { updateInitialTimes, getInitialTimes } =
     React.useContext(InitialTimesContext);
