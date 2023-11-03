@@ -106,7 +106,7 @@ export function BookingForm({
               aria-label="reservation-name"
               aria-errormessage={nameError}
               type="text"
-              name="reservation-name"
+              name="name"
               id="reservation-name"
               value={formData.name}
               placeholder="Your Name"
